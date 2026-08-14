@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<int> p(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> p[i];
+    }
+
+    // p[i] is the friend who gave a gift to friend i+1
+    // So, if p[i] = x, then friend i+1 received a gift from x.
+    // We need to find for each friend x, who received a gift from x.
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (p[j] == i) {
+                cout << j + 1 << " ";
+                break;
+            }
+        }
+    }
+
+    return 0;
+}
